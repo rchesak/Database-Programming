@@ -17,6 +17,11 @@ public class BuildDB2 {
 	***********************************************************************/
 	public static void main( String[] args ) {
 		Connection conn = null;
+		String hostname = "111.111.11.111";
+		String port = "1111";
+		String sid = "def";
+		String user = "rchesak";
+		String psswd = "demo";
 		Statement stmt = null;
 		String[] tableNames = new String[] {"movies", "moviesgenres", "agegroups", "occupationgroups", "users", "ratings"};
 
@@ -77,7 +82,7 @@ public class BuildDB2 {
 
 		try{
 			grabDriver();
-			conn = establishConnection(conn);
+			conn = establishConnection(conn, hostname, port, sid, user, psswd);
 			//create an object by which we will pass SQL stmts to the database
 			stmt = conn.createStatement();	
 			dropTables(stmt, tableNames);
@@ -133,12 +138,11 @@ public class BuildDB2 {
 	/***********************************************************************
 	*  establish a connection to the database... 
 	***********************************************************************/
-	public static Connection establishConnection(Connection conn) {
+	public static Connection establishConnection(Connection conn, String hostname, String port, String sid, String user, String psswd) {
 		try {
 			System.out.print( "Connecting to DEF database...\n\n" );
 			//String url = dataSource + dbName;
-
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@140.192.30.237:1521:def", "rchesak", "demo");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@" + hostname + ":" + port + ":" + sid, user, psswd);
 
 			/*conn = dbms.equals("localAccess") ? DriverManager.getConnection(url)
 			: DriverManager.getConnection(url, userName, password );*/
