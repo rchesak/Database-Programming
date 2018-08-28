@@ -1,6 +1,6 @@
 # Database-Programming
-This is my final project for a Database Programming class (CSC 452) at DePaul University. 
-It showcases an ability to use Java as well as PL/SQL for creating a normalized database (3NF), parsing files, 
+This is my final project for a Database Programming class at DePaul University. 
+It demonstrates an ability to use Java as well as PL/SQL for creating a normalized database (3NF), parsing files, 
 manipulating data, loading tables, and running advanced queries.
 
 ## Sample Output
